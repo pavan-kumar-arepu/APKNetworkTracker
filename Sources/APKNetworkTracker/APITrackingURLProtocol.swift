@@ -59,7 +59,7 @@ class APITrackingURLProtocol: URLProtocol {
             } else {
                 if let data = data, let response = response {
                     self.client?.urlProtocol(self, didLoad: data)
-                    self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+                    self.client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .allowed)
                     APITracker.trackAPICall(request: self.request, response: response as? HTTPURLResponse, responseData: data)
                 }
                 self.client?.urlProtocolDidFinishLoading(self)
