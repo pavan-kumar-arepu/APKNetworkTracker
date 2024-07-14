@@ -6,30 +6,30 @@
 //
 // Sources/APKNetworkTracker/Views/APICallListView.swift
 
-
-import Foundation
 import SwiftUI
 
-@available(iOS 13.0, *)
 public struct APICallListView: View {
     
+    var apiCalls: [APICall]
     @State private var selectedAPICall: APICall? = nil
+    @State private var showAPICallDetails = false
     
     public var body: some View {
-        VStack {
-            Text("Tracked API Calls")
-                .font(.title)
-                .padding()
-            
-            List(APICallManager.shared.apiCalls) { apiCall in
-                Button(action: {
-                    self.selectedAPICall = apiCall
-                }) {
-                    Text("API Call Details")
-                }
+        NavigationView {
+            List(apiCalls) { apiCall in
+                Text("API Call \(apiCall.id)")
+                    .onTapGesture {
+                        self.selectedAPICall = apiCall
+                        self.showAPICallDetails = true
+                    }
             }
-            .sheet(item: $selectedAPICall) { apiCall in
-                APICallDetailView(apiCall: apiCall)
+            .navigationTitle("API Calls")
+            .sheet(isPresented: $showAPICallDetails, onDismiss: {
+                self.selectedAPICall = nil
+            }) {
+                if let selectedAPICall = self.selectedAPICall {
+                    APICallDetailView(apiCall: selectedAPICall)
+                }
             }
         }
     }

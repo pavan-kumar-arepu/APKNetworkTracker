@@ -10,18 +10,15 @@
 import Foundation
 
 public class APICallManager {
-    
     public static let shared = APICallManager()
     
-    private(set) var apiCalls: [APICall] = []
+    @Published public private(set) var apiCalls: [APICall] = []
     
-    private init() {}
-    
-    func add(_ apiCall: APICall) {
+    public func add(_ apiCall: APICall) {
         apiCalls.append(apiCall)
     }
     
-    func clear() {
-        apiCalls = []
+    public func clear() {
+        apiCalls.removeAll()
     }
 }
