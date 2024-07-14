@@ -16,9 +16,8 @@ public class APITracker {
     private static var apiCalls: [APICall] = []
     
     public static func startTracking() {
-        if isTrackingEnabled {
-            URLProtocol.registerClass(APITrackingURLProtocol.self)
-        }
+        isTrackingEnabled = true
+        URLProtocol.registerClass(APITrackingURLProtocol.self)
     }
     
     public static func stopTracking() {
@@ -36,16 +35,17 @@ public class APITracker {
     }
     
     public static func showAPICallModal() {
-        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
-            print("Error: Root view controller not found")
-            return
+        DispatchQueue.main.async {
+            guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
+                print("Error: Root view controller not found")
+                return
+            }
+            
+            let modalView = APICallModalView()
+            let hostingController = UIHostingController(rootView: modalView)
+            
+            rootViewController.present(hostingController, animated: true, completion: nil)
         }
-        
-        // Assuming APICallModalView is your SwiftUI modal view
-        let modalView = APICallModalView()
-        let hostingController = UIHostingController(rootView: modalView)
-        
-        rootViewController.present(hostingController, animated: true, completion: nil)
     }
 }
 
