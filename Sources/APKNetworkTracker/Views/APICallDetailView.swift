@@ -46,6 +46,7 @@ public struct APICallDetailView: View {
             Spacer()
         }
         .padding()
+        .navigationBarTitle(Text("API Call Details"), displayMode: .inline)
     }
 }
 

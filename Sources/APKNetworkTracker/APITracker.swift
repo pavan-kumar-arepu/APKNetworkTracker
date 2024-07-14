@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 public class APITracker {
     
@@ -22,35 +23,26 @@ public class APITracker {
     
     public static func stopTracking() {
         URLProtocol.unregisterClass(APITrackingURLProtocol.self)
-        clearTrackedData()
+        APICallManager.shared.clear()
     }
     
     public static func trackAPICall(request: URLRequest, response: HTTPURLResponse?, responseData: Data?) {
         if isTrackingEnabled {
             let apiCall = APICall(request: request, response: response, responseData: responseData)
-            add(apiCall)
+            APICallManager.shared.add(apiCall)
         }
     }
     
     public static func showAPICallModal() {
-        let modalViewController = APICallModalViewController()
-        
-        // Example: Use a coordinator to present the modal view controller
-        if let window = UIApplication.shared.windows.first {
-            let rootViewController = window.rootViewController
-            rootViewController?.present(modalViewController, animated: true, completion: nil)
+        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
+            print("Error: Root view controller not found")
+            return
         }
-    }
-
-    public static func getTrackedAPICalls() -> [APICall] {
-        return apiCalls
-    }
-    
-    private static func add(_ apiCall: APICall) {
-        apiCalls.append(apiCall)
-    }
-    
-    private static func clearTrackedData() {
-        apiCalls.removeAll()
+        
+        // Assuming APICallModalView is your SwiftUI modal view
+        let modalView = APICallModalView()
+        let hostingController = UIHostingController(rootView: modalView)
+        
+        rootViewController.present(hostingController, animated: true, completion: nil)
     }
 }
