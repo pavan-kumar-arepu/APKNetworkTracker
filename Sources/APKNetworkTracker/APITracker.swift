@@ -28,8 +28,10 @@ public class APITracker {
     
     public static func trackAPICall(request: URLRequest, response: HTTPURLResponse?, responseData: Data?) {
         if isTrackingEnabled {
-            let apiCall = APICall(request: request, response: response, responseData: responseData)
-            APICallManager.shared.add(apiCall)
+            DispatchQueue.global().async {
+                let apiCall = APICall(request: request, response: response, responseData: responseData)
+                APICallManager.shared.add(apiCall)
+            }
         }
     }
     
