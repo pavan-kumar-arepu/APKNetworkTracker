@@ -19,7 +19,7 @@ class APITrackingURLProtocol: URLProtocol {
         return request
     }
    
-    /*
+
     override func startLoading() {
         // Implement logic to track API request/response
         guard let client = self.client else { return }
@@ -30,8 +30,9 @@ class APITrackingURLProtocol: URLProtocol {
         // Example: track request
         APITracker.trackAPICall(request: request, response: nil, responseData: nil)
     }
-    */
+
     
+    /*
     override func startLoading() {
       guard let client = self.client else { return }
       
@@ -55,7 +56,7 @@ class APITrackingURLProtocol: URLProtocol {
       }
       task.resume()
     }
-    
+    */
     override func stopLoading() {
         // Optional: Implement logic to handle when loading is stopped
     }
