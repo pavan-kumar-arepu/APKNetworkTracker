@@ -24,26 +24,26 @@ public struct APICallDetailView: View {
             .pickerStyle(SegmentedPickerStyle())
             .padding()
             
-            switch selectedTab {
-            case 0:
-                RequestSegmentView(request: apiCall.request)
-            case 1:
-                if let response = apiCall.response {
-                    ResponseSegmentView(response: response)
-                } else {
-                    Text("No response available")
+            ScrollView {
+                switch selectedTab {
+                case 0:
+                    RequestSegmentView(request: apiCall.request)
+                case 1:
+                    if let response = apiCall.response {
+                        ResponseSegmentView(response: response)
+                    } else {
+                        Text("No response available")
+                    }
+                case 2:
+                    if let responseData = apiCall.responseData {
+                        ResponseDataSegmentView(responseData: responseData)
+                    } else {
+                        Text("No response data available")
+                    }
+                default:
+                    Text("Invalid selection")
                 }
-            case 2:
-                if let responseData = apiCall.responseData {
-                    ResponseDataSegmentView(responseData: responseData)
-                } else {
-                    Text("No response data available")
-                }
-            default:
-                Text("Invalid selection")
             }
-            
-            Spacer()
         }
         .padding()
         .navigationBarTitle(Text("API Call Details"), displayMode: .inline)
@@ -60,7 +60,11 @@ struct RequestSegmentView: View {
                 .padding(.bottom)
             
             Text(request.description)
+                .padding(.bottom)
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
         }
+        .padding()
     }
 }
 
@@ -74,7 +78,11 @@ struct ResponseSegmentView: View {
                 .padding(.bottom)
             
             Text(response.description)
+                .padding(.bottom)
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
         }
+        .padding()
     }
 }
 
@@ -88,6 +96,10 @@ struct ResponseDataSegmentView: View {
                 .padding(.bottom)
             
             Text(String(data: responseData, encoding: .utf8) ?? "Failed to decode response data")
+                .padding(.bottom)
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
         }
+        .padding()
     }
 }
