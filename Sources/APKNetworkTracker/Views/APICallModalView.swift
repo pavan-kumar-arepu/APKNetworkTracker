@@ -33,7 +33,7 @@ public struct APICallModalView: View {
     }
     
     private func fetchAPIcalls() {
-        // Logic to fetch API calls, possibly from APICallManager or provided data
-        self.apiCalls = APICallManager.shared.apiCalls // Example: Assuming APICallManager manages API calls
+        // Fetch API calls from APICallManager or any other source
+        self.apiCalls = APICallManager.shared.apiCalls
     }
 }

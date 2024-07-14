@@ -21,4 +21,11 @@ public class APICallManager {
     public func clear() {
         apiCalls.removeAll()
     }
+    
+    private func fetchAPIcalls() {
+        print("Fetching API calls...")
+        self.apiCalls = APICallManager.shared.apiCalls
+        print("API calls count: \(self.apiCalls.count)")
+    }
+
 }
