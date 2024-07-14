@@ -37,7 +37,7 @@ import PackageDescription
 let package = Package(
     name: "APKNetworkTracker",
     platforms: [
-        .iOS(.v14)
+        .iOS(.v13)
     ],
     products: [
         .library(
