@@ -9,8 +9,11 @@
 import SwiftUI
 public struct APICallModalView: View {
     
+    
     @Environment(\.presentationMode) private var presentationMode
     @State private var apiCalls: [APICall] = []
+    
+    public init() {}
     
     public var body: some View {
         NavigationView {
