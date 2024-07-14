@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
-
+/*
 public class APITracker {
     
     public static var isTrackingEnabled = false
@@ -44,5 +44,29 @@ public class APITracker {
         let hostingController = UIHostingController(rootView: modalView)
         
         rootViewController.present(hostingController, animated: true, completion: nil)
+    }
+}
+
+*/
+public class APITracker {
+    
+    public static var isTrackingEnabled = false
+    
+    public static func startTracking() {
+        if isTrackingEnabled {
+            URLProtocol.registerClass(APITrackingURLProtocol.self)
+        }
+    }
+    
+    public static func stopTracking() {
+        URLProtocol.unregisterClass(APITrackingURLProtocol.self)
+    }
+    
+    public static func trackAPICall(request: URLRequest, response: HTTPURLResponse?, responseData: Data?) {
+        if isTrackingEnabled {
+            // Track API call without modifying response data
+            let apiCall = APICall(request: request, response: response, responseData: responseData)
+            APICallManager.shared.add(apiCall)
+        }
     }
 }
