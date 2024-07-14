@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class APITracker {
     
@@ -31,6 +32,16 @@ public class APITracker {
         }
     }
     
+    public static func showAPICallModal() {
+        let modalViewController = APICallModalViewController()
+        
+        // Example: Use a coordinator to present the modal view controller
+        if let window = UIApplication.shared.windows.first {
+            let rootViewController = window.rootViewController
+            rootViewController?.present(modalViewController, animated: true, completion: nil)
+        }
+    }
+
     public static func getTrackedAPICalls() -> [APICall] {
         return apiCalls
     }
