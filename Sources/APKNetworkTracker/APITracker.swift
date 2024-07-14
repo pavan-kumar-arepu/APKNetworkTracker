@@ -19,7 +19,6 @@ public class APITracker {
     
     public static func stopTracking() {
         URLProtocol.unregisterClass(APITrackingURLProtocol.self)
-//        APICallManager.shared.clear()
         APICallManager.shared.clear()
     }
     
