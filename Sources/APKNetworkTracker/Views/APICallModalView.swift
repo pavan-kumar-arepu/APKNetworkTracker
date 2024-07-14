@@ -13,6 +13,8 @@ public struct APICallModalView: View {
     @Environment(\.presentationMode) private var presentationMode
     @State private var apiCalls: [APICall] = [] // Assuming this is populated with data
     
+    public init() {} // Public initializer
+    
     public var body: some View {
         NavigationView {
             List(apiCalls) { apiCall in
