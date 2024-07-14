@@ -18,7 +18,8 @@ class APITrackingURLProtocol: URLProtocol {
     override class func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
-    
+   
+    /*
     override func startLoading() {
         // Implement logic to track API request/response
         guard let client = self.client else { return }
@@ -29,16 +30,14 @@ class APITrackingURLProtocol: URLProtocol {
         // Example: track request
         APITracker.trackAPICall(request: request, response: nil, responseData: nil)
     }
+    */
     
-    /*
     override func startLoading() {
       guard let client = self.client else { return }
       
       // Continue loading the original request
       let task = URLSession.shared.dataTask(with: request) { data, response, error in
-        // Track API call after receiving data and response
-          APITracker.trackAPICall(request: self.request, response: (response as! HTTPURLResponse), responseData: data)
-        
+      
         // Check for errors
         if let error = error {
           client.urlProtocol(self, didFailWithError: error)
@@ -49,11 +48,13 @@ class APITrackingURLProtocol: URLProtocol {
         client.urlProtocol(self, didReceive: response!, cacheStoragePolicy: .notAllowed) // Set cache policy (optional)
         client.urlProtocol(self, didLoad: data!)
         client.urlProtocolDidFinishLoading(self)
+          
+          // Track API call after receiving data and response
+          APITracker.trackAPICall(request: self.request, response: response as! HTTPURLResponse, responseData: data)
+          
       }
       task.resume()
     }
-     
-     */
     
     override func stopLoading() {
         // Optional: Implement logic to handle when loading is stopped
