@@ -20,4 +20,8 @@ public class APICallManager {
     func add(_ apiCall: APICall) {
         apiCalls.append(apiCall)
     }
+    
+    func clear() {
+        apiCalls = []
+    }
 }
