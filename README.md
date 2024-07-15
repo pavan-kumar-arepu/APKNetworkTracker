@@ -1,8 +1,6 @@
-# APKNetworkTracker
-
-A description of this package.
 
 ## APKNetworkTracker
+Description:
 APKNetworkTracker is a Swift package that has been gaining attention in the iOS development community. Inspired by 'NetFox', a well-known package for network debugging, APKNetworkTracker provides a more customizable solution (written in SwiftUI) for tracking API calls within your iOS apps. Whether you're dealing with a difficult API or simply want to monitor your network traffic, APKNetworkTracker has got you covered.
 
 ## Why Choose APKNetworkTracker?
