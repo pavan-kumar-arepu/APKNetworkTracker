@@ -2,23 +2,40 @@
 
 A description of this package.
 
-APKNetworkTracker
+## APKNetworkTracker
 APKNetworkTracker is a Swift package that has been gaining attention in the iOS development community. Inspired by 'NetFox', a well-known package for network debugging, APKNetworkTracker provides a more customizable solution (written in SwiftUI) for tracking API calls within your iOS apps. Whether you're dealing with a difficult API or simply want to monitor your network traffic, APKNetworkTracker has got you covered.
 
-Why Choose APKNetworkTracker?
+## Why Choose APKNetworkTracker?
 In some organizations, integrating third-party packages might not be the preferred approach due to various reasons such as security concerns, customization needs, or company policies. This is where APKNetworkTracker excels. It offers the flexibility to customize the tool according to your project’s specific needs.
 
-Empower Your QA Teams: Allows QA testers to verify API calls and responses independently, without involving developers.
-Debugging Made Easy: Developers can identify and resolve issues faster by viewing API responses in real time within the app.
-Transparency Like Never Before: Provides a detailed log of all API interactions, making troubleshooting straightforward.
-Ease of Integration: Written in SwiftUI, making it simple to integrate and activate.
-How Does It Work?
+## Empower Your QA Teams: 
+- Allows QA testers to verify API calls and responses independently, without involving developers.
+- Debugging Made Easy: Developers can identify and resolve issues faster by viewing API responses in real-time within the app.
+- Transparency Like Never Before: Provides a detailed log of all API interactions, making troubleshooting straightforward.
+- Ease of Integration: Written in SwiftUI, making it simple to integrate and activate.
+
+## How Does It Work?
 APKNetworkTracker intercepts your application’s network requests, logs the details, and provides a user interface to view these logs. With a simple double-tap (handled by the client app with a provided sample code snippet), users can pull up a modal displaying all tracked API calls, their requests, and responses.
 
-Getting Started with APKNetworkTracker
+## Animation Video 
+
+
+## Screenshots 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d3ec44d4-c643-42a7-9bfd-3481b958b468" alt="Image loading Swiftly" width="45%" />
+  <span style="display:inline-block; width:40px;"></span>
+  <img src="https://github.com/user-attachments/assets/c76ba081-f725-4ed4-9fa8-92724b8f8f81" alt="On DoubleTap Show API Calls" width="45%" />
+    <span style="display:inline-block; width:40px;"></span>
+  <img src="https://github.com/user-attachments/assets/98316909-a5af-46c1-a53f-103485082478" alt="Selected API Call Reqeust" width="45%" />
+    <span style="display:inline-block; width:40px;"></span>
+      <img src="https://github.com/user-attachments/assets/487e96d0-a4bb-4d17-b914-9c9906fe132d" alt="Selected API Call Response" width="45%" />
+</p>
+
+## Getting Started with APKNetworkTracker
 You can integrate APKNetworkTracker into your project using Swift Package Manager (SPM). The package is hosted on GitHub.
 
-SwiftUI Integration Example
+- SwiftUI Integration Example
 ```import SwiftUI
 import APKNetworkTracker
 
@@ -59,7 +76,7 @@ struct MyApp: App {
     }
 }
 ```
-Regular Swift Applications Example
+- Regular Swift Applications Example
 ```
 import UIKit
 import SwiftUI
@@ -125,8 +142,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
-A Word of Caution
+## A Word of Caution
 While APKNetworkTracker is a powerful tool, it’s still a work in progress. It performs well with SwiftUI applications, but there might be some compatibility issues with Objective-C or older versions of Swift. We’re constantly working on improving it, and your feedback is always welcome.
 
-Give It a Spin
-Curious to see APKNetworkTracker in action? You can try it out via Swift Package Manager by visiting the APKNetworkTracker GitHub repository. If you want to see how it's integrated, check out the ContentView in the Spiritual Master App, which is designed to load several images from remote seamlessly.
+
+
+
