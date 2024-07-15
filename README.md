@@ -31,7 +31,7 @@ APKNetworkTracker intercepts your application’s network requests, logs the det
 </p>
 
 ## Getting Started with APKNetworkTracker
-You can integrate APKNetworkTracker into your project using Swift Package Manager (SPM). The package is hosted on GitHub.
+You can integrate APKNetworkTracker into your project using Swift Package Manager (SPM). The package is hosted here: https://github.com/pavan-kumar-arepu/APKNetworkTracker-Package. 
 
 - SwiftUI Integration Example
 ```import SwiftUI
@@ -143,6 +143,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ## A Word of Caution
 While APKNetworkTracker is a powerful tool, it’s still a work in progress. It performs well with SwiftUI applications, but there might be some compatibility issues with Objective-C or older versions of Swift. We’re constantly working on improving it, and your feedback is always welcome.
 
+## Contact
+For any suggestion or feedback, please contact:
+Name: Arepu Pavan Kumar
+Email: iOSDeveloper.ipa@gmail.com
+Website: https://pavanapps.netlify.app/
+
+--------------------------- Happy Coding! -----------------------------
 
 
 
